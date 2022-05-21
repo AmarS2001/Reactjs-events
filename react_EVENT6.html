@@ -1,0 +1,36 @@
+<!--Passing Arguments
+If you want to send parameters into an event handler, you have two options:
+1. Make an anonymous arrow function:
+2.Bind the event handler to this.
+Note that the first argument has to be this.-->
+<script crossdomain src="https://unpkg.com/react@16/umd/react.development.js"> </script> 
+<script crossdomain src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"> </script> 
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"> </script>
+<body>
+<div id="myid"></div>
+<script type="text/babel">
+class Example extends React.Component
+ {
+  shoot = (a) =>
+  {
+    alert(a);
+  }
+  render() {
+    return (
+      <button onClick={() => this.shoot("Goal")}>Take the shot!</button>
+    );
+  }
+  
+ /*shoot(a) {
+    alert(a);
+  }
+  render() {
+    return (
+      <button onClick={this.shoot.bind(this, "Goal")}>Take the shot!</button>
+    );
+  }*/
+}
+
+ReactDOM.render(<Example />, document.getElementById('myid'));
+</script>
+</body>

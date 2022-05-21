@@ -1,0 +1,26 @@
+<!--bind this::::For methods in React, the this keyword should represent the component that owns the method.
+That is why you should use arrow functions. With arrow functions, this will always represent the object that defined the arrow function.
+If you must use regular functions instead of arrow functions you have to bind this to the component instance using the bind() method::-->
+<script crossdomain src="https://unpkg.com/react@16/umd/react.development.js"> </script> 
+<script crossdomain src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"> </script> 
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"> </script>
+<body>
+<div id="myid"></div>
+<script type="text/babel">
+class Example extends React.Component {
+  shoot = () => {		//Arrow function
+    alert(this);
+    /*
+    The 'this' keyword refers to the component object
+    */
+  }
+  render() {
+    return (
+      <button onClick={this.shoot}>Take the shot!</button>
+    );
+  }
+}
+
+ReactDOM.render(<Example />, document.getElementById('myid'));
+</script>
+</body>

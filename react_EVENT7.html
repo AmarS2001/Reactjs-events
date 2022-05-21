@@ -1,0 +1,28 @@
+<!--React Event Object-->
+<script crossdomain src="https://unpkg.com/react@16/umd/react.development.js"> </script> 
+<script crossdomain src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"> </script> 
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"> </script>
+<body>
+<div id="myid"></div>
+<script type="text/babel">
+class Football extends React.Component {
+  shoot = (a, b) => {
+	alert(a);
+    alert(b.type);
+    /*
+    'b' represents the React event that triggered the function,
+    in this case the 'click' event
+    */
+  }
+  render() {
+    return (
+      <button
+        onClick={(ev) => this.shoot("Goal", ev)}
+      >Take the shot!</button>
+    );
+  }
+}
+
+ReactDOM.render(<Football />, document.getElementById('myid'));
+</script>
+</body>
